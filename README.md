@@ -1,166 +1,125 @@
+
 # ✈️ Budget Wings
 
-Budget Wings is a full-stack flight search and comparison web application that helps users find and compare real flight options based on their travel requirements.
+A full-stack flight search and comparison web application with real-time flight data, filtering, comparison, authentication, saved flights, and search history.
 
-## 🚀 Features
+## 🛠️ Technologies Used
 
-### Flight Search
-- Search domestic and international flights
-- Search airports by city, airport name, country, or IATA code
-- Select departure date, passengers, and cabin class
-- View real flight information through the flight API
-
-### Flight Results
-- Airline and flight number
-- Departure and arrival information
-- Flight duration
-- Number of stops
-- Price and currency
-- Sort by Lowest Price, Fastest, and Best
-- Filter by price, airline, stops, cabin class, departure time, and arrival time
-
-### Flight Comparison
-Compare selected flights based on:
-- Airline
-- Flight number
-- Price
-- Duration
-- Stops
-- Departure and arrival
-- Cabin class
-
-### Authentication
-- User registration and login
-- Password hashing using bcrypt
-- JWT-based authentication
-- Protected user-specific routes
-
-### Personalized Dashboard
-After login, users can access:
-- Quick flight search
-- Saved flights
-- Search history
-- Recent searches
-- Recently saved flights
-- Profile information
-- Account statistics
-
-### Saved Flights
-- Save flights for later
-- View saved flights
-- Remove saved flights
-
-### Search History
-- View previous searches
-- View search details
-- Search again using previous search information
-
-## 🛠️ Technology Stack
-
-### Frontend
-- React.js
+- React
 - Vite
-- JavaScript
-- HTML
-- CSS
-
-### Backend
 - Node.js
 - Express.js
-- REST API
-
-### Database
 - MongoDB Atlas
-
-### Authentication & Security
-- JWT
+- JWT Authentication
 - bcrypt
-- Environment variables
-
-### Flight Data
 - SerpApi Google Flights API
+- HTML
+- CSS
+- JavaScript
+
+## 📁 Project Structure
+
+    Budget-Wings/
+    │
+    ├── backend/
+    │   ├── routes/
+    │   ├── models/
+    │   ├── middleware/
+    │   ├── controllers/
+    │   ├── server.js
+    │   ├── package.json
+    │   └── .env
+    │
+    ├── frontend/
+    │   ├── src/
+    │   │   ├── components/
+    │   │   ├── pages/
+    │   │   ├── App.jsx
+    │   │   ├── main.jsx
+    │   │   └── styles.css
+    │   ├── package.json
+    │   └── vite.config.js
+    │
+    ├── .gitignore
+    ├── .env.example
+    └── README.md
 
 ## 🏗️ System Architecture
 
-```text
-User
-  ↓
-React + Vite Frontend
-  ↓
-Node.js + Express Backend
-  ↓
- ┌─────────────────┬─────────────────┐
- ↓                 ↓                 ↓
-SerpApi        MongoDB Atlas     JWT / bcrypt
-Flights          Database       Authentication
-
-
-
-
-
+    User
+       ↓
+    React + Vite Frontend
+       ↓
+    Node.js + Express Backend
+       ↓
+    ┌──────────────────┬──────────────────┬────────────────────┐
+    │     SerpApi      │   MongoDB Atlas  │    JWT + bcrypt    │
+    │  Google Flights  │     Database     │   Authentication   │
+    └──────────────────┴──────────────────┴────────────────────┘
 
 ## 🔄 Application Flow
 
 ### Guest User
 
-Home
-  |
-  v
-Search Flights
-  |
-  v
-Flight Results
-  |
-  +--> Filter
-  |
-  +--> Sort
-  |
-  +--> Compare
-  |
-  +--> View Details
-  |
-  v
-Login / Sign Up
-  |
-  v
-Save Flights
-
+    Home
+      ↓
+    Search Flights
+      ↓
+    Flight Results
+      ├── Filter
+      ├── Sort
+      ├── Compare
+      └── View Details
+      ↓
+    Login / Sign Up
+      ↓
+    Save Flights
 
 ### Authenticated User
 
-Login / Sign Up
-  |
-  v
-Dashboard
-  |
-  +--> Quick Flight Search
-  |
-  v
-Flight Results
-  |
-  +--> Filter
-  |
-  +--> Sort
-  |
-  +--> Compare
-  |
-  +--> View Details
-  |
-  +--> Save Flight
-  |
-  +--> Saved Flights
-  |
-  +--> Search History
-  |
-  +--> Profile
-
+    Login / Sign Up
+      ↓
+    Dashboard
+      ├── Quick Flight Search
+      ↓
+    Flight Results
+      ├── Filter
+      ├── Sort
+      ├── Compare
+      ├── View Details
+      └── Save Flight
+      ↓
+    Dashboard Features
+      ├── Saved Flights
+      ├── Search History
+      └── Profile
 
 ## 🎯 Project Objective
 
 The objective of Budget Wings is to provide a simple and user-friendly platform for discovering and comparing flight options while giving registered users personalized features such as saved flights and search history.
 
+## ✈️ Main Features
 
-## 🔒 Security
+- Search flights without requiring login
+- Search domestic and international flights
+- Search airports by city, airport name, or IATA code
+- Real-time flight data through an external flight API
+- Flight filtering
+- Flight sorting
+- Flight comparison
+- Flight details
+- User registration and login
+- JWT-based authentication
+- Secure password hashing using bcrypt
+- Save flights
+- View saved flights
+- Search history
+- Personalized dashboard
+- User profile
+- Responsive user interface
+- Interactive aviation-themed interface
+
+## 🔐 Security
 
 - Passwords are hashed using bcrypt.
 - JWT is used for authentication.
@@ -168,21 +127,102 @@ The objective of Budget Wings is to provide a simple and user-friendly platform 
 - Users can access only their own saved flights and search history.
 - Sensitive credentials are stored using environment variables.
 - Flight API credentials remain on the backend.
+- `.env` files are excluded from Git using `.gitignore`.
 
+## 📡 API Architecture
 
-## 📌 Important Note
+    React Frontend
+          ↓
+    Express Backend
+          ↓
+    SerpApi Google Flights API
+          ↓
+    Flight Data
+          ↓
+    Express Backend
+          ↓
+    React Frontend
 
-Flight availability, prices, and other flight information depend on data returned by the external flight API and may change over time.
+User-specific information is stored in MongoDB Atlas.
+
+    React
+      ↓
+    Express API
+      ↓
+    MongoDB Atlas
+      ↓
+    Users
+    Saved Flights
+    Search History
+
+## ⚙️ Installation and Setup
+
+### 1. Clone the Repository
+
+    git clone https://github.com/megha09-cloud/Budget_Wings.git
+    cd Budget_Wings
+
+### 2. Backend Setup
+
+    cd backend
+    npm install
+
+Create a `.env` file inside the backend folder:
+
+    FLIGHT_API_KEY=your_serpapi_api_key
+    MONGODB_URI=your_mongodb_connection_string
+    PORT=5000
+    CLIENT_ORIGIN=http://localhost:5173
+    JWT_SECRET=your_jwt_secret
+
+Start the backend:
+
+    npm start
+
+### 3. Frontend Setup
+
+Open another terminal:
+
+    cd frontend
+    npm install
+    npm run dev
+
+The frontend will normally run at:
+
+    http://localhost:5173
+
+## 🔑 Environment Variables
+
+Never upload actual API keys, database passwords, or JWT secrets to GitHub.
+
+Use `.env.example` as a reference:
+
+    FLIGHT_API_KEY=your_serpapi_api_key
+    MONGODB_URI=your_mongodb_connection_string
+    PORT=5000
+    CLIENT_ORIGIN=http://localhost:5173
+    JWT_SECRET=your_jwt_secret
+
+## 📊 Flight Data
+
+Flight availability, prices, airline information, schedules, and other flight details depend on the data returned by the external flight API and may change over time.
 
 Budget Wings is a flight search and comparison application. It does not directly operate flights or guarantee the availability of displayed fares.
 
+## 🚀 Deployment
+
+    Frontend → Netlify
+    Backend → Render
+    Database → MongoDB Atlas
+    Flight Data → SerpApi
+
+For deployment, update the environment variables with the production frontend and backend URLs.
 
 ## 👩‍💻 Author
 
 Megha Gupta
 
 BCA Student
-
 
 ## 📄 License
 
