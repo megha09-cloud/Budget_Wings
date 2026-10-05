@@ -7,7 +7,9 @@ import auth from './routes/auth.js';
 import account from './routes/account.js';
 
 const app = express();
-app.use(cors({ origin: process.env.CLIENT_ORIGIN || "https://budget-wings.netlify.app"}));
+app.use(cors({origin:'https://budget-wings.netlify.app',
+  credentials:true
+})
 app.use(express.json());
 app.get('/api/health', (_q, r) => r.json({ ok: true, apiKeyConfigured: !!process.env.FLIGHT_API_KEY, db: mongoose.connection.readyState === 1 }));
 app.use('/api/auth', auth);
