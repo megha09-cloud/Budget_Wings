@@ -94,53 +94,11 @@ Node.js + Express Backend
 SerpApi        MongoDB Atlas     JWT / bcrypt
 Flights          Database       Authentication
 
-## 📁 Project Structure
-
-```text
-Budget-Wings/
-|
-+-- backend/
-|   +-- data/
-|   +-- models/
-|   +-- routes/
-|   +-- services/
-|   +-- .env.example
-|   +-- package.json
-|   +-- ...
-|
-+-- frontend/
-|   +-- src/
-|   +-- package.json
-|   +-- vite.config.js
-|   +-- ...
-|
-+-- .gitignore
-+-- .env.example
-+-- README.md
 
 
-## 🌐 Deployment
 
-The application can be deployed using:
 
-- Frontend: Netlify
-- Backend: Render
-- Database: MongoDB Atlas
-- Flight Data: SerpApi
 
-### Production Architecture
-
-User
-  |
-  v
-Netlify Frontend
-  |
-  v
-Render Backend
-  |
-  +--> MongoDB Atlas
-  |
-  +--> SerpApi
 ## 🔄 Application Flow
 
 ### Guest User
@@ -229,5 +187,3 @@ BCA Student
 ## 📄 License
 
 This project is developed for educational and academic purposes.
-
-
